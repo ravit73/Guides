@@ -3,4 +3,4 @@
 
 link na [Duck DB Documentation](https://duckdb.org/docs/sql/statements/select)
 
-malá změna v Readme
+link na [Mermaid](https://mermaid.js.org/syntax/flowchart.html)
