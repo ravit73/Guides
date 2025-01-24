@@ -12,10 +12,20 @@ print(duckdb.__version__)
 
 mydb = duckdb.connect('C:/Users/radek.vitek/OneDrive - AKKA/AzureDevops/duckdb/smallwarehouse.db')
 
+# definice URL CNB kurzu
 kurzy = 'https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/rok.txt?2025'
 
 myrates = \
-        mydb.read_csv(kurzy, sep='|', header=None, names=['date', 'country', 'currency', 'amount', 'rate'])
+        mydb.read_csv(kurzy, sep='|')
 
 
-mydb.execute("SELECT '1 EUR' from myrates").fetchall()
+#mydb.execute("SELECT * from myrates").fetchall()
+
+myrates.execute("""
+                DROP TABLE IF EXISTS myrates;
+                SELECT * FROM myrates;
+                """)
+
+
+mydb.close()
+print("Code is OK")
