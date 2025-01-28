@@ -2,12 +2,7 @@ import os
 from datetime import datetime
 import polars as pl
 
-
-def timeConvert(atime):
-  dt = atime
-  newtime = datetime.fromtimestamp(dt)
-  return newtime.date()
-   
+ 
 def sizeFormat(size):
     newform = format(size/1024, ".2f")
     return newform + " KB"
